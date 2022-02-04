@@ -8,7 +8,7 @@ interface IAuthenticateClient {
   password: string;
 }
 
-class AuthenticateClienUseCase {
+class AuthenticateClientUseCase {
   async execute({ user_name, password }: IAuthenticateClient) {
     const client = await prisma.clients.findFirst({
       where: {
@@ -35,4 +35,4 @@ class AuthenticateClienUseCase {
   }
 }
 
-export { AuthenticateClienUseCase };
+export { AuthenticateClientUseCase };

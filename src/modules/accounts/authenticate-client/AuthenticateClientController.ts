@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 
-import { AuthenticateClienUseCase } from "./AuthenticateClientUseCase";
+import { AuthenticateClientUseCase } from "./AuthenticateClientUseCase";
 
 class AuthenticateClientController {
   async handle(request: Request, response: Response) {
     const { user_name, password } = request.body;
-    const authenticateClientUseCase = new AuthenticateClienUseCase();
+    const authenticateClientUseCase = new AuthenticateClientUseCase();
     const token = await authenticateClientUseCase.execute({
       user_name,
       password,

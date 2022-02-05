@@ -16,6 +16,8 @@ Create a database in postgres
 $ docker run --name delivery -e POSTGRES_DB=YOUR_DATABASE_NAME -e POSTGRES_PASSWORD=YOUR_PASSWORD -p 5432:5432 -d postgres
 ```
 
+Add credentials in .env file as explained [here](.env.example)
+
 Run migrations
 
 ```shell

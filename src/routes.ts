@@ -1,10 +1,12 @@
 import { Router } from "express";
 
 import { ensureAuthenticateClient } from "./middleware/ensureAuthenticateClient";
+import { ensureAuthenticateDeliveryman } from "./middleware/ensureAuthenticateDeliveryman";
 import { AuthenticateClientController } from "./modules/accounts/authenticate-client/AuthenticateClientController";
 import { AuthenticateDeliverymanController } from "./modules/accounts/authenticate-deliveryman/AuthenticateDeliverymanController";
 import { CreateClientController } from "./modules/clients/use-cases/create-client/CreateClientController";
 import { CreateDeliveryController } from "./modules/deliveries/use-cases/create-delivery/CreateDeliveryController";
+import { FindDeliveriesInProgressController } from "./modules/deliveries/use-cases/find-deliveries-in-progress/FindDeliveriesInProgressController";
 import { CreateDeliverymanController } from "./modules/deliverymen/use-cases/create-deliveryman/CreateDeliverymanController";
 
 const routes = Router();
@@ -19,6 +21,9 @@ const authenticateDeliverymanController =
   new AuthenticateDeliverymanController();
 
 const createDeliveryController = new CreateDeliveryController();
+
+const findDeliveriesInProgressController =
+  new FindDeliveriesInProgressController();
 
 routes.post("/client/authenticate", authenticateClientController.handle);
 
@@ -35,6 +40,12 @@ routes.post(
   "/delivery",
   ensureAuthenticateClient,
   createDeliveryController.handle
+);
+
+routes.get(
+  "/delivery/available",
+  ensureAuthenticateDeliveryman,
+  findDeliveriesInProgressController.handle
 );
 
 export { routes };

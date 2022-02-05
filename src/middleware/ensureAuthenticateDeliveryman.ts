@@ -24,7 +24,6 @@ export async function ensureAuthenticateDeliveryman(
       token,
       "019acc25a4e242bb55ad490832ada12d"
     ) as IPayload;
-    console.log(sub);
     request.id_deliveryman = sub;
     return next();
   } catch (err) {

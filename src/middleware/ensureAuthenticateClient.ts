@@ -24,7 +24,6 @@ export async function ensureAuthenticateClient(
       token,
       "019acc25a4e242bb55ad489832ada12d"
     ) as IPayload;
-    console.log(sub);
     request.id_client = sub;
     return next();
   } catch (err) {

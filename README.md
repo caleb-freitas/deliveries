@@ -10,7 +10,7 @@ Install dependencies
 $ npm install
 ```
 
-Create a database in postgres
+Create a database in postgres:
 
 ```shell
 $ docker run --name delivery -e POSTGRES_DB=YOUR_DATABASE_NAME -e POSTGRES_PASSWORD=YOUR_PASSWORD -p 5432:5432 -d postgres

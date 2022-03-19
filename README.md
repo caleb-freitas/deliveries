@@ -1,41 +1,25 @@
-# Deliveries System &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+<h1 align="center">Deliveries System</h1>
+
+## Project
 
 A simple delivery system
 
-## Installing / Getting started
+## How to execute
 
-Install dependencies
+- Clone the repository
+- Go to the folder that was cloned `deliveries`
+- Add database credentials to `.env.example` file and rename it to `.env`
+- Run `npm install` to install the dependencies
+- Start a database on `localhost:5432`
+- Run `npx prisma migrate dev` to create the tables on the database
+- Run `npm start`
 
-```shell
-$ npm install
-```
+The application will be available on `http://localhost:3000`
 
-Create a database in postgres:
+## Technologies
 
-```shell
-$ docker run --name delivery -e POSTGRES_DB=YOUR_DATABASE_NAME -e POSTGRES_PASSWORD=YOUR_PASSWORD -p 5432:5432 -d postgres
-```
-
-Add credentials in .env file as explained [here](.env.example)
-
-Run migrations
-
-```shell
-$ npx prisma migrate dev
-```
-
-Start the server
-
-```shell
-$ npm run start
-```
-
-## Developing
-
-### Built With
-
-Node.js
-
-TypeScript
-
-Prisma
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express](https://expressjs.com/pt-br/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
